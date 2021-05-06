@@ -3,11 +3,9 @@
 <head>
     <script>
         /**
-        * SCF_GATEWAY：SCF 云函数网关地址
-        * SITE_NAME：站点名称
-        */
+        * SCF_GATEWAY：https://4.quhui.workers.dev/        * SITE_NAME：辉的库房      */
         window.GLOBAL_CONFIG = {
-            SCF_GATEWAY: "https://4.quhui137.workers.dev/",
+            SCF_GATEWAY: "https://4.quhui.workers.dev/",
             SITE_NAME: "辉的库房",
             IS_CF: true
         };
@@ -797,7 +795,7 @@
                                 const object = this;
                                 for (const key in object) {
                                     if (object.hasOwnProperty(key)) {
-                                        if ((eval('/^' + search + '$/i')).test(object[key])) {
+                                        if ((eval('/' + search + '/i')).test(object[key])) {
                                             return true;
                                         }
                                     }
@@ -964,7 +962,7 @@
                     );
                     document.querySelector('.btn.quote').addEventListener('click',
                         event => {
-                            previewHandler.copyTextContent(null, window.api.url + '?file=' + encodeURI(path));
+                            previewHandler.copyTextContent(null, window.api.url + '?file=' + path);
                             const btn = document.querySelector('.btn.quote');
                             btn.innerHTML = '已复制';
                             setTimeout(() => btn.innerHTML = '引用', 250);
@@ -983,7 +981,7 @@
                             previewHandler.copyTextContent(null,
                                 window.location.origin +
                                 window.location.pathname +
-                                '?path=' + encodeURI(sharePath()));
+                                '?path=' + sharePath());
                             const btn = document.querySelector('.btn.share');
                             btn.innerHTML = '已复制';
                             setTimeout(() => btn.innerHTML = '分享', 250);
